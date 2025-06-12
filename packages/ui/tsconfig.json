@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // Standard JS features
+    "target": "ES2021",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+
+    // Type Checking
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Lit-specific options
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+
+    // Output
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": []
+}
