@@ -1,0 +1,54 @@
+# .github/workflows/ci.yml
+
+# Name of the workflow
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events but only for the "main" branch
+  push:
+    branches: ["main"]
+  # Triggers the workflow on pull request events for the "main" branch
+  pull_request:
+    branches: ["main"]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build-and-test"
+  build-and-test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Step 1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up pnpm using the official pnpm GitHub Action
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      # Step 3: Set up Node.js. The pnpm action automatically handles caching.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20" # Specify the Node.js version you are using
+          cache: "pnpm" # Use pnpm's cache
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 5: Run linting across the entire monorepo using Turborepo
+      - name: Run lint
+        run: pnpm turbo run lint
+
+      # Step 6: Run tests across the entire monorepo using Turborepo
+      # This depends on the build step via the turbo.json config
+      - name: Run tests
+        run: pnpm turbo run test
+
+      # Step 7: Run the build command across the entire monorepo using Turborepo
+      - name: Run build
+        run: pnpm turbo run build
