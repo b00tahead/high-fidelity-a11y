@@ -29,7 +29,7 @@ jobs:
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9 # Use pnpm version 9, or your preferred version
+          version: 10 # Use pnpm version 9, or your preferred version
 
       # Step 3: Set up Node.js. The pnpm action automatically handles caching.
       - name: Set up Node.js
