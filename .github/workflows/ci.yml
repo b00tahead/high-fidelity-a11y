@@ -28,8 +28,6 @@ jobs:
       # Step 2: Set up pnpm using the official pnpm GitHub Action
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10 # Use pnpm version 9, or your preferred version
 
       # Step 3: Set up Node.js. The pnpm action automatically handles caching.
       - name: Set up Node.js
