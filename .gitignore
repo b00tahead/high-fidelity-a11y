@@ -1,0 +1,79 @@
+# .gitignore
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+# ----------------------------------------------------------------
+# Node.js dependency folders
+node_modules/
+# pnpm debug logs
+pnpm-debug.log*
+
+
+# Build & Compilation Output
+# ----------------------------------------------------------------
+# Standard build output directories
+dist/
+build/
+out/
+# Next.js build output
+.next/
+# TypeScript build cache
+*.tsbuildinfo
+
+
+# Turborepo
+# ----------------------------------------------------------------
+# The Turborepo cache folder must be ignored
+.turbo/
+
+
+# Development & Environment
+# ----------------------------------------------------------------
+# Local environment variables.
+# Never commit these! Add a .env.example to your repo instead.
+.env
+.env.*
+!.env.example
+
+
+# Logs & Reports
+# ----------------------------------------------------------------
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Test reports and coverage
+coverage/
+.nyc_output/
+
+
+# Operating System Files
+# ----------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# IDE & Editor Directories
+# ----------------------------------------------------------------
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
